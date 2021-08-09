@@ -3,6 +3,15 @@ import matplotlib.pyplot as plt
 import argparse
 """"
 Program for finder min and max threshold for edge detection
+
+Args:
+Input file Directory: String:Path
+Max value for Minimum threshold for edge detection Int
+Minimum threshold increment increase for edge detection Int
+Max value for Maximum threshold for edge detection Int
+Maximum threshold increment for edge detection Int
+
+Written by Christopher Bagdon - 08/21
 """
 def test_edges(file, min, max):
     """
@@ -10,7 +19,6 @@ def test_edges(file, min, max):
     :param file: Image to find edges from
     :param min: Minimum threshhold for edge detection
     :param max: Maximum threshhold for edge detection
-    :param output: Filename of new image
     """
     # Read in image
     image = cv2.imread(file)
@@ -23,7 +31,6 @@ def test_edges(file, min, max):
     # Draw Contours on original image
     cv2.drawContours(image, contours[0], -1, (255,0,0), thickness=3)
     figure, ax = plt.subplots(1, figsize=(12, 8))
-    #print(f"Min: {min} \n Max: {max} \n")
     plt.imshow(image)
     plt.title(f"Min: {min} \n Max: {max} \n")
     plt.show()

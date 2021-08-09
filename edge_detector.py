@@ -11,6 +11,8 @@ Input file Directory: String:Path
 Output file Directory String:Path
 Minimum threshold for edge detection Int
 Maximum threshold for edge detection Int
+
+Written by Christopher Bagdon - 08/21
 """
 def write_edges(file, min, max, output):
     """
@@ -26,9 +28,6 @@ def write_edges(file, min, max, output):
     g_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     # Generate edges using canny
     edges = cv2.Canny(g_image, min, max)
-    #figure, ax = plt.subplots(1, figsize=(12,8))
-    # test edge detection
-    plt.imshow(edges, cmap="Greys")
     # Find contours
     contours = cv2.findContours(edges, cv2.RETR_LIST, cv2.CHAIN_APPROX_NONE)
     # Draw Contours on original image
