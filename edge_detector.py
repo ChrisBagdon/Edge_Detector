@@ -31,4 +31,12 @@ if __name__=="__main__":
     parser.add_argument("max_thresh")
     args = parser.parse_args()
 
-
+    for file in os.listdir(args.image_dir):
+        if file.endswith(".png") or file.endswith(".jpg"):
+            output = args.output_dir + file[:-4] + "_edged" + file[-4:]
+            input = args.image_dir + file
+            try:
+                write_edges(input, int(args.min_thresh), int(args.max_thresh), output)
+            except:
+                print(f"{file} could not have edges written to")
+                continue
