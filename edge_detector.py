@@ -1,10 +1,25 @@
 import argparse
 import cv2
-import numpy as np
 import os
 import matplotlib.pyplot as plt
 
+"""
+Program to find edges in image files and create new images with edges highlighted. 
+
+Args:
+Input file Directory: String:Path
+Output file Directory String:Path
+Minimum threshold for edge detection Int
+Maximum threshold for edge detection Int
+"""
 def write_edges(file, min, max, output):
+    """
+    Finds edges of image, writes them over top in blue in new image file
+    :param file: Image to find edges from
+    :param min: Minimum threshhold for edge detection
+    :param max: Maximum threshhold for edge detection
+    :param output: Filename of new image
+    """
     # Read in image
     image = cv2.imread(file)
     # Convert to grayscale
